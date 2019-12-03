@@ -16,10 +16,8 @@ int main()
         to_vector;
     
     ints.resize(2*ints.size()); // Make sure there is room for writing what otherwise would be out-of-bounds
-    for(auto i : ints)
-    {
-        std::cout << i << std::endl;
-    };
+    ints[1] = 12;
+    ints[2] = 2;
 
     auto chunks = 
         ints | 
@@ -33,7 +31,8 @@ int main()
         int op = chunk[0];
         int v1 = ints[chunk[1]];
         int v2 = ints[chunk[2]];
-        ints[chunk[3]] = op ==
+        ints[chunk[3]] = (op == 1 ? (v1 + v2) : (v1 * v2));  
     }
-    
+
+    std::cout << ints[0] << std::endl;    
 }
