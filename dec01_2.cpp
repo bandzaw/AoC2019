@@ -1,14 +1,14 @@
 #include <iostream>
-#include "range/v3/view/istream.hpp"
-#include "range/v3/view/transform.hpp"
-#include "range/v3/view/generate.hpp"
-#include "range/v3/numeric/accumulate.hpp"
-#include "range/v3/view/take_while.hpp"
+#include <range/v3/view/istream.hpp>
+#include <range/v3/view/transform.hpp>
+#include <range/v3/view/generate.hpp>
+#include <range/v3/numeric/accumulate.hpp>
+#include <range/v3/view/take_while.hpp>
 
 int main()
 {
     using namespace ranges;
-    auto input = istream_range<int>(std::cin);
+    auto input = istream_view<int>(std::cin);
     int totFuel = accumulate(input |
         view::transform([](int m) {
             return accumulate(
